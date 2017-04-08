@@ -89,6 +89,15 @@ class LinkDAO extends DAO
         $this->getDb()->delete('t_link', array('link_id' => $id));
     }
 
+    /**
+     * Removes all comments for a user
+     *
+     * @param integer $userId The id of the user
+     */
+    public function deleteAllByUser($userId) {
+        $this->getDb()->delete('t_link', array('user_id' => $userId));
+    }
+
 
     /**
      * Creates an Link object based on a DB row.
