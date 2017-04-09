@@ -12,3 +12,6 @@ $app['db.options'] = array(
 );
 
 $app['debug'] = true;
+
+// define log level
+$app['monolog.level'] = 'WARNING';

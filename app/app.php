@@ -50,6 +50,12 @@ $app->register(new Silex\Provider\FormServiceProvider());
 $app->register(new Silex\Provider\LocaleServiceProvider());
 $app->register(new Silex\Provider\TranslationServiceProvider());
 
+$app->register(new Silex\Provider\MonologServiceProvider(), array(
+    'monolog.logfile' => __DIR__.'/../var/logs/weblinks.log',
+    'monolog.name' => 'WenLinks',
+    'monolog.level' => $app['monolog.level']
+));
+
 // Register services
 $app['dao.user'] = function ($app) {
     return new WebLinks\DAO\UserDAO($app['db']);
